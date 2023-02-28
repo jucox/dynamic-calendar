@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #85CDFD;
+    --secondary-color: #3C84AB;
+    --light-color: #DEFCF9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Golos Text', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    background: var(--primary-color);
+}
+
+.calendar-wrapper {
+    background: #FFF;
+    width: 95%;
+    max-width: 450px;
+    border-radius: 10px;
+    position: absolute;
+    top: 25%;
+    user-select: none;
+    margin: 0 20px;
+    color: #1C1C1C;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px 10px;
+}
+
+.calendar-header .current-date {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.calendar-header .icons {
+    display: flex;
+    gap: 20px;
+}
+
+.calendar-header .icons i {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.calendar-header .icons i:hover {
+    background: var(--primary-color);
+}
+
+.calendar {
+    padding: 20px;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+}
+
+.calendar ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 0;
+}
+
+.calendar ul li {
+    width: calc(100% / 7);
+    position: relative;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar .days li {
+    margin-top: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.calendar .days li::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: .25s;
+    z-index: -1;
+}
+
+.calendar .days li:hover::before {
+    background: var(--light-color);
+}
+
+.days li.inactive {
+    color: #AAA;
+}
+
+.days li.active {
+    color: #FFF;
+}
+
+.days li.active::before {
+    background: var(--secondary-color);
+}
+
+.days li.active:hover::before {
+    background: var(--primary-color);
+}
